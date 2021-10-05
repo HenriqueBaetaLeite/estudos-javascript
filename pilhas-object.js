@@ -40,6 +40,17 @@ class Stack {
     //   this.pop();
     // }
   }
+
+  toString() {
+    if (this.isEmpty()) {
+      return '';
+    }
+    let objString = `${this.items[0]}`;
+    for (let index = 1; index < this.count; index += 1) {
+      objString = `${objString},${this.items[index]}`;
+    }
+    return objString;
+  }
 }
 
 const stack = new Stack();
@@ -54,3 +65,6 @@ console.log(stack.isEmpty());
 console.log(stack);
 
 console.log(stack.peek());
+
+console.log(stack.toString())
+;

@@ -1,3 +1,5 @@
+const { ModuleKind } = require("typescript");
+
 class Stack {
   constructor() {
     this.items = {};
@@ -43,7 +45,7 @@ class Stack {
 
   toString() {
     if (this.isEmpty()) {
-      return '';
+      return "";
     }
     let objString = `${this.items[0]}`;
     for (let index = 1; index < this.count; index += 1) {
@@ -58,13 +60,14 @@ const stack = new Stack();
 stack.push(5);
 stack.push(8);
 
-console.log(stack.isEmpty());
+// console.log(stack.isEmpty());
 
 // stack.pop();
 
-console.log(stack);
+// console.log(stack);
 
-console.log(stack.peek());
+// console.log(stack.peek());
 
-console.log(stack.toString())
-;
+// console.log(stack.toString());
+
+module.exports = Stack;

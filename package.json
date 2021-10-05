@@ -13,5 +13,8 @@
     "axios": "^0.21.1",
     "ts-node": "^10.2.0",
     "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "tsm": "^2.1.0"
   }
 }

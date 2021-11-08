@@ -34,17 +34,18 @@ class Queue {
   }
 
   clear() {
-    // this.count = 0;
-    // this.lowestCount = 0;
-    // this.items = {};
+    this.count = 0;
+    this.lowestCount = 0;
+    this.items = {};
     // OU
-    while (this.size() !== 0) {
-      this.dequeue();
-    }
+    // aqui vai falhar, pq não vai zerar o lowestCount
+    // while (this.size() !== 0) {
+    //   this.dequeue();
+    // }
   }
 
   toString() {
-    if (this.isEmpty()) return '';
+    if (this.isEmpty()) return "";
     let objString = `${this.items[this.lowestCount]}`;
     for (let index = this.lowestCount + 1; index < this.count; index += 1) {
       objString = `${objString},${this.items[index]}`;
@@ -53,16 +54,21 @@ class Queue {
   }
 }
 
-
 const myQueue = new Queue();
 
-myQueue.enqueue('Baêta');
+console.log(myQueue.isEmpty());
 
-myQueue.enqueue('João');
+myQueue.enqueue("Baêta");
 
-myQueue.enqueue('Juju');
+myQueue.enqueue("João");
+
+myQueue.enqueue("Juju");
 
 console.log(myQueue.peek());
+
+console.log(myQueue.isEmpty());
+
+console.log(myQueue.items, myQueue.size(), myQueue.lowestCount);
 
 myQueue.clear();
 

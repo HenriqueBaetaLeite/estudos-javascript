@@ -79,3 +79,5 @@ myQueue.clear();
 // myQueue.dequeue();
 
 console.log(myQueue.items, myQueue.size(), myQueue.lowestCount);
+
+export default Queue;

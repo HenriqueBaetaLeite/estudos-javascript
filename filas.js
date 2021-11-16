@@ -80,4 +80,31 @@ myQueue.clear();
 
 console.log(myQueue.items, myQueue.size(), myQueue.lowestCount);
 
-export default Queue;
+// export default Queue;
+
+function hotPotato(elementsList, num) {
+  const queue = new Queue();
+  const eliminatedList = [];
+  for (let index = 0; index < elementsList.length; index += 1) {
+    queue.enqueue(elementsList[index]);
+  }
+  while (queue.size() > 1) {
+    for (let index = 0; index < num; index += 1) {
+      queue.enqueue(queue.dequeue());
+    }
+    eliminatedList.push(queue.dequeue());
+  }
+  return {
+    eliminated: eliminatedList,
+    winner: queue.dequeue(),
+  };
+}
+
+const names = ["Henrique", "Thati", "João", "Ana"];
+
+const result = hotPotato(names, 3);
+
+result.eliminated.forEach((player) => {
+  console.log(player);
+});
+console.log(result.winner);

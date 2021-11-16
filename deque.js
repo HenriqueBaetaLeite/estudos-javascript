@@ -84,10 +84,39 @@ const myDeque = new Deque();
 console.log(myDeque.isEmpty());
 
 console.log(myDeque.size());
-myDeque.addBack('Henrque');
+myDeque.addBack("Henrque");
 
-myDeque.addFront('Joao');
+myDeque.addFront("Joao");
 
 console.log(myDeque.items);
 
 console.log(myDeque.size());
+
+function palindromeChecker(aString) {
+  if (
+    aString === undefined ||
+    aString === null ||
+    (aString !== null && aString.length === 0)
+  ) {
+    return false;
+  }
+  const deque = new Deque();
+  const lowerString = aString.toLocaleLowerCase().split(" ").join("");
+  console.log(aString)
+  console.log(lowerString)
+  let isEqual = true;
+  let firstChar, lastChar;
+  for (let index = 0; index < lowerString.length; index += 1) {
+    deque.addBack(lowerString.charAt(index));
+  }
+  while (deque.size() > 1 && isEqual) {
+    firstChar = deque.removeFront();
+    lastChar = deque.removeBack();
+    if (firstChar !== lastChar) {
+      isEqual = false;
+    }
+  }
+  return isEqual;
+}
+
+console.log('É palindrome?', palindromeChecker("Kayak"));
